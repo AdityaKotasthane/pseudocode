@@ -1,41 +1,41 @@
-/******************************************************************************
 
-Welcome to GDB Online.
-  GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby, 
-  C#, OCaml, VB, Perl, Swift, Prolog, Javascript, Pascal, COBOL, HTML, CSS, JS
-  Code, Compile, Run and Debug online from anywhere in world.
 
-*******************************************************************************/
+#include <math.h>
 #include <stdio.h>
-
-void bubbleSort(int arr[], int size) {
-
  
-  for (int j = 0; j < size - 1; ++j) {
-    for (int i = 0; i < size - j - 1; ++i) {
+void insertionSort(int arr[], int n)
+{
+    int i, key, j;
+    for (i = 1; i < n; i++) {
+        key = arr[i];
+        j = i - 1;
+ 
       
-      if (arr[i] > arr[i + 1]) {
-        
-        int temp = arr[i];
-        arr[i] = arr[i + 1];
-        arr[i + 1] = temp;
-      }
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            j = j - 1;
+        }
+        arr[j + 1] = key;
     }
-  }
 }
+ 
 
-void display(int arr[], int size) {
-  for (int i = 0; i < size; ++i) {
-    printf("%d  ", arr[i]);
-  }
-  printf("\n");
+void printArray(int arr[], int n)
+{
+    int i;
+    for (i = 0; i < n; i++)
+        printf("%d ", arr[i]);
+    printf("\n");
 }
+ 
 
-int main() {
-  int arr[] = {-2, 45, 0, 11, -9};
-  int size = sizeof(arr) / sizeof(arr[0]);
-  bubbleSort(arr, size);
-  printf("Sorted array:\n");
-  display(arr, size);
-return 0;
+int main()
+{
+    int arr[] = { 12, 11, 13, 5, 6 };
+    int n = sizeof(arr) / sizeof(arr[0]);
+ 
+    insertionSort(arr, n);
+    printArray(arr, n);
+ 
+    return 0;
 }
